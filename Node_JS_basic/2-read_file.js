@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = function countStudents(path) {
   if (!fs.existsSync(path)) {
-   throw new Error('Cannot load the database');
+    throw new Error('Cannot load the database');
   }
   //  console.log(path);
   const data = fs.readFileSync(path, 'utf-8').split('\n');
@@ -35,5 +35,4 @@ module.exports = function countStudents(path) {
   }
   // console.log(csStudents.toString());
   // console.log(sweStudents);
-
-}
+};

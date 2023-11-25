@@ -1,4 +1,3 @@
-const { resolveObjectURL } = require('buffer');
 const fs = require('fs');
 
 module.exports = function countStudents(path) {

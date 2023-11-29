@@ -20,7 +20,7 @@ const app = http.createServer((req, res) => {
         res.write(`Number of students ${result.totalStudents}\n`);
         // console.log(result.fields);
         result.fields.forEach(({ field, count, list }) => {
-          res.write(`Number of students in ${field}: ${count}. List: ${list}\n`);
+          res.write(`Number of students in ${field}: ${count}. List: ${list}`);
         });
         res.end();
       })

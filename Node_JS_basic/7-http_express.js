@@ -29,6 +29,8 @@ app.get('/students', (req, res) => {
         res.statusCode = 500;
         res.end(error.message);
       });
+  } else {
+    res.send('This is the list of our students\nCannot load the database');
   }
 });
 

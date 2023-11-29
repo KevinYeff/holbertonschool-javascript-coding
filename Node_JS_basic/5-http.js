@@ -17,7 +17,6 @@ const app = http.createServer((req, res) => {
     countStudents(dataBaseFile)
       .then((result) => {
         res.write(`This is the list of our students\nNumber of students: ${result.totalStudents}\n`);
-        // console.log(result.fields);
         result.fields.forEach(({ field, count, list }) => {
           res.write(`Number of students in ${field}: ${count}. List: ${list}\n`);
         });
@@ -25,7 +24,7 @@ const app = http.createServer((req, res) => {
       })
       .catch((error) => {
         res.statusCode = 500;
-        res.end(error.message);
+        res.end(`This is the list of our students\n${error.message}`);
       });
   }
 });

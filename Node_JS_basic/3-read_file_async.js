@@ -8,7 +8,7 @@ function countStudents(path) {
         return;
       }
 
-      const noTitleData = data.split('\n').slice(1);
+      const noTitleData = data.split('\n').slice(1).filter((row) => row.trim());
       const parsedFields = [...new Set(noTitleData.map((row) => row.split(',')[3]))];
 
       const result = {

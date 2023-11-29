@@ -16,10 +16,9 @@ app.get('/', (req, res) => {
 
 app.get('/students', (req, res) => {
   if (fs.existsSync(dataBaseFile)) {
-    res.write('This is the list of our students\n');
     countStudents(dataBaseFile)
       .then((result) => {
-        res.write(`Number of students ${result.totalStudents}\n`);
+        res.write(`This is the list of our students\nNumber of students: ${result.totalStudents}\n`);
         result.fields.forEach(({ field, count, list }) => {
           res.write(`Number of students in ${field}: ${count}. List: ${list}\n`);
         });
@@ -27,7 +26,7 @@ app.get('/students', (req, res) => {
       })
       .catch((error) => {
         res.statusCode = 500;
-        res.end(error.message);
+        res.end(`This is the list of our students\n${error.message}`);
       });
   } else {
     res.send('This is the list of our students\nCannot load the database');

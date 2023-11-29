@@ -5,6 +5,9 @@ module.exports = function countStudents(path) {
     throw new Error('Cannot load the database');
   }
   const data = fs.readFileSync(path, 'utf-8').split('\n');
+
+  if (data[data.length - 1] === '') data.pop();
+
   const noTitleData = data.slice(1);
   console.log(`Number of students: ${noTitleData.length}`);
 
